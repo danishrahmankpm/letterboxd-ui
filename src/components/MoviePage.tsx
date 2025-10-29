@@ -20,8 +20,8 @@ export default function MoviePage(){
     movie.poster_path="https://image.tmdb.org/t/p/w500"+movie.poster_path;
     
     return (
-        <div className="flex justify-center min-h-screen bg-[#941b0c] text-gray-200 py-12 px-6">
-        <div className="flex flex-col md:flex-row items-start gap-10 w-full max-w-5xl bg-[#081c15] rounded-2xl shadow-xl p-8">
+        <div className="flex justify-center min-h-screen bg-[#081c15] text-gray-200 py-12 px-6">
+        <div className="flex flex-col md:flex-row items-start gap-10 w-full max-w-5xl bg-[#941b0c] rounded-2xl shadow-xl p-8">
             
             {/* Poster */}
             <div className="flex-shrink-0 w-full md:w-1/3 flex justify-center">

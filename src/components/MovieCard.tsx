@@ -1,18 +1,18 @@
 import { Link } from "react-router-dom";
 
 type MovieCardProps = {
-    id:string
+    id:number
     title:string,
-    year:number,
-    posterUrl:string
+    release_date:string,
+    poster_path:string
 }
 export default function MovieCard(movieCardProps:MovieCardProps){
-    const {title,year,posterUrl}=movieCardProps;
-    return <div className="flex flex-col justify-center items-center bg-gray-800">
-            <Link to={`/article/${title}`}>
-                <img src={posterUrl} alt={`${title} poster`} />
-                <h2>{title}</h2>
-                <p>{year}</p>
+    const {title,release_date,poster_path,id}=movieCardProps;
+    
+    return <div className="w-[60%] sm:w-[50%] md:w-[22.5%] min-w-[150px] bg-[#941b0c] rounded-lg overflow-hidden text-left pb-2.5 flex flex-col cursor-pointer  hover:opacity-55">
+            <Link to={`/movie/${id}`}>
+                <img src={poster_path} alt={`${title} poster`} />
+                
             </Link>
         </div>
     

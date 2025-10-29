@@ -7,8 +7,8 @@ export default function useMovies(){
     useEffect(()=>{
         const fetchMovies=async()=>{
             try{
-                const response=await axios.get("https://api.example.com/movies",{})
-                setMovies(response.data.movies);
+                const response=await axios.get("https://api.themoviedb.org/3/movie/popular",{params:{language:"en-us",page:1,api_key:"9ad65dc78032dafb93a33fd0c77710d6"}})
+                setMovies(response.data.results);
             }
             catch(error){
                 console.log("Error fetching movies:",error);

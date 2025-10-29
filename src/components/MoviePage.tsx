@@ -1,38 +1,55 @@
 import { useParams } from "react-router-dom";
 import useMovie from "../hooks/useMovie";
 export type Movie={
-    id:string;
+    id:number;
     title:string;
-    year:number;
-    director:string;
-    posterUrl:string;
-    description:string;
-    synopsis:string;
+    release_date:string;
+    original_language:string;
+    poster_path:string;
+    vote_avg:number;
+    overview:string;
 }
 export default function MoviePage(){
-    const id=useParams()
-    const movie=useMovie(String(id)); 
+    const paramsObj=useParams()
+    const id=paramsObj.id
+    console.log(id)
+    const movie=useMovie(Number(id)); 
     if(!movie){
         return <div className="text-white flex justify-center items-center h-screen">Loading...</div>
     }
+    movie.poster_path="https://image.tmdb.org/t/p/w500"+movie.poster_path;
+    
     return (
-            <div className=" flex flex-row justify-center">
-                <div className="flex flex-col justify-center items-center w-[70%] gap-3 text-white">
-                    <div>
-                        <h1 className="text-2xl">{movie.title}</h1>
-                    </div>
-                    <div className="flex justify-evenly gap-3">
-                        <span>{movie.year}</span>
-                        <span>{movie.director}</span>
-                    </div>
-                    <div>
-                        <img src={movie.posterUrl} alt="alt-text"></img>
-                    </div>
-                    <div className="mt-6">
-                        <p>{movie.synopsis}</p>
-                    </div>
-                </div>
+        <div className="flex justify-center min-h-screen bg-[#941b0c] text-gray-200 py-12 px-6">
+        <div className="flex flex-col md:flex-row items-start gap-10 w-full max-w-5xl bg-[#081c15] rounded-2xl shadow-xl p-8">
+            
+            {/* Poster */}
+            <div className="flex-shrink-0 w-full md:w-1/3 flex justify-center">
+            <img
+                src={movie.poster_path}
+                alt={`${movie.title} poster`}
+                className="rounded-lg shadow-lg w-[80%] md:w-full object-cover"
+            />
+            </div>
+
+            {/* Details */}
+            <div className="flex flex-col gap-4 w-full md:w-2/3">
+            <h1 className="text-3xl font-bold text-[white]">{movie.title}</h1>
+
+            <div className="flex flex-row flex-wrap items-center gap-5 text-sm text-gray-400">
+                <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
+                {movie.original_language.toUpperCase()}
+                </span>
+                <span>{movie.release_date}</span>
+            </div>
+
+            <div className="border-t border-gray-700 my-3"></div>
+
+            <p className="text-gray-300 leading-relaxed">{movie.overview}</p>
+            </div>
 
         </div>
+        </div>
+
     )
 }

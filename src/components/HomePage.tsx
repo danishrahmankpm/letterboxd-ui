@@ -6,7 +6,7 @@ import useMovies from "../hooks/useMovies";
 import logo from "../assets/logo.png"
 
 export default function  HomePage(){
-    const [search,setSearch]=useState<string>("");
+    const [search,setSearch]=useState("");
     const movies=useMovies();
 
     movies.forEach((movie)=>{movie.poster_path="https://image.tmdb.org/t/p/w500"+movie.poster_path});

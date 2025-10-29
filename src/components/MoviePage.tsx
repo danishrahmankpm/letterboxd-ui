@@ -37,13 +37,13 @@ export default function MoviePage(){
             <h1 className="text-3xl font-bold text-[white]">{movie.title}</h1>
 
             <div className="flex flex-row flex-wrap items-center gap-5 text-sm text-gray-400">
-                <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
+                <span className="bg-[#1e88e5] text-[white] px-3 py-1 rounded-full font-medium">
                     {movie.original_language.toUpperCase()}
                 </span>
-                <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
+                <span className="bg-[#1e88e5] text-[white] px-3 py-1 rounded-full font-medium">
                     {(movie.vote_average).toFixed(2)}/10
                 </span>
-                <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
+                <span className="bg-[#1e88e5] text-[white] px-3 py-1 rounded-full font-medium">
                     {movie.release_date}
                 </span>
             </div>

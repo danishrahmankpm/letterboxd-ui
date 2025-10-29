@@ -6,7 +6,7 @@ export type Movie={
     release_date:string;
     original_language:string;
     poster_path:string;
-    vote_avg:number;
+    vote_average:number;
     overview:string;
 }
 export default function MoviePage(){
@@ -18,7 +18,7 @@ export default function MoviePage(){
         return <div className="text-white flex justify-center items-center h-screen">Loading...</div>
     }
     movie.poster_path="https://image.tmdb.org/t/p/w500"+movie.poster_path;
-    
+    console.log(movie.vote_average)
     return (
         <div className="flex justify-center min-h-screen bg-[#081c15] text-gray-200 py-12 px-6">
         <div className="flex flex-col md:flex-row items-start gap-10 w-full max-w-5xl bg-[#941b0c] rounded-2xl shadow-xl p-8">
@@ -38,9 +38,14 @@ export default function MoviePage(){
 
             <div className="flex flex-row flex-wrap items-center gap-5 text-sm text-gray-400">
                 <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
-                {movie.original_language.toUpperCase()}
+                    {movie.original_language.toUpperCase()}
                 </span>
-                <span>{movie.release_date}</span>
+                <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
+                    {(movie.vote_average).toFixed(2)}/10
+                </span>
+                <span className="bg-[#68b0ab] text-[white] px-3 py-1 rounded-full font-medium">
+                    {movie.release_date}
+                </span>
             </div>
 
             <div className="border-t border-gray-700 my-3"></div>
